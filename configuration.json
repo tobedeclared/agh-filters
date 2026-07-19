@@ -7,14 +7,12 @@
     {
       "name": "EasyList",
       "source": "https://easylist.to/easylist/easylist.txt",
-      "type": "adblock",
-      "transformations": [ "RemoveComments", "Compress" ]
+      "type": "adblock"
     },  
     {
       "name": "EasyPrivacy",
       "source": "https://easylist.to/easylist/easyprivacy.txt",
-      "type": "adblock",
-      "transformations": [ "RemoveComments", "Compress" ]
+      "type": "adblock"
     }
   ],
   "transformations": [
@@ -23,6 +21,7 @@
     "Deduplicate",
     "TrimLines",
     "InsertFinalNewLine",
-    "RemoveEmptyLines"
+    "RemoveEmptyLines",
+	"Compress"
   ]
 }
