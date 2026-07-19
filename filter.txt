@@ -3,7 +3,7 @@
 ! Description: DNS block list that can be used for AdGuardHome. (Does not work with Pi-hole)
 ! Homepage: https://github.com/tobedeclared/agh-filters
 ! License: GPLv3
-! Last modified: 2026-07-19T11:50:35.782Z
+! Last modified: 2026-07-19T11:53:09.518Z
 !
 ! Compiled by @adguard/hostlist-compiler v2.1.0
 !
@@ -2647,6 +2647,7 @@
 ||afovivytex.com^
 ||afr4g5.de^
 ||afraid-resolution.com^
+||afrdtech.com^
 ||afreetsat.com^
 ||afretecaukpaynize.cyou^
 ||afrfusutkldst.website^
@@ -4421,6 +4422,7 @@
 ||aztecaviewier.shop^
 ||aztizumgcjnwa.site^
 ||aztumqassickf.space^
+||azurestealth.com^
 ||azwvcioqzjtu.in^
 ||azyfgghezmgho.site^
 ||azygotesonless.com^
@@ -5339,6 +5341,7 @@
 ||bidfortraffic.com^
 ||bidsssmmjviwi.site^
 ||bidster.net^
+||bidswitch.net^
 ||bidsxchange.com^
 ||bidtheatre.com^
 ||bidtimize.com^
@@ -7598,6 +7601,7 @@
 ||cheatsanabas.shop^
 ||chebfqsmfwovu.online^
 ||check-tl-ver-294-2.com^
+||check3.tiaa.org^
 ||checkbookfort.com^
 ||checkcavity.com^
 ||checkcdn.net^
@@ -9101,6 +9105,7 @@
 ||crustedmailbag.qpon^
 ||crutchstubbornultimatum.com^
 ||cruxgpnyrvvur.website^
+||crwdcntrl.net^
 ||crwlmdpzabosr.online^
 ||crwthpong.com^
 ||crxcr2.com^
@@ -33992,6 +33997,7 @@
 ||rumperapasote.qpon^
 ||rumpsallelespattens.qpon^
 ||rumsroots.com^
+||rumt-sg.com^
 ||rumtgbtbgtixo.site^
 ||run-syndicate.com^
 ||runative-syndicate.com^
@@ -36664,6 +36670,7 @@
 ||statisticsnail.com^
 ||statisticstohost.net^
 ||statorkumyk.com^
+||stats.rip^
 ||statsforads.com^
 ||statsloange.qpon^
 ||statuejesusburn.com^
@@ -46323,7 +46330,6 @@
 ||creatives.inmotionhosting.com^
 ||ctent.povvverz.one^
 ||cts.tradepub.com^
-||cxad.cxense.com^
 ||datacluster.club^
 ||ddfdgfgfghjhjbnnmklojhgfdghgbcvbnnmmdfgfvvvvbpvlgbdknfidgh.pages.dev^
 ||dev-adblocker.workers.dev^
@@ -48002,7 +48008,6 @@
 ||adstk.io^
 ||adultium.com^
 ||advertease.store^
-||afrdtech.com^
 ||aftership-pixel.com^
 ||aggle.net^
 ||agkn.com^
@@ -48029,7 +48034,6 @@
 ||bfmio.com^
 ||bgalytics.com^
 ||bidgx.com^
-||bidswitch.net^
 ||bkrtx.com^
 ||bloomreach.co^
 ||bluekai.com^
@@ -48080,7 +48084,6 @@
 ||cpx.to^
 ||cr-relay.com^
 ||crossengage.io^
-||crwdcntrl.net^
 ||cvlb.dev^
 ||cxense.com^
 ||cybba.solutions^
@@ -48360,7 +48363,6 @@
 ||rtgvwr.com^
 ||rtmscl.com^
 ||rum-ingress-coralogix.com^
-||rumt-sg.com^
 ||rumt-zh.com^
 ||s-onetag.com^
 ||sbgsodufuosmmvsdf.info^
@@ -48400,7 +48402,6 @@
 ||stalkoda.com^
 ||stat.ovh^
 ||statisticsplatform.com^
-||stats.rip^
 ||sturton-lation.com^
 ||summerhamster.com^
 ||superpointlesshamsters.com^
@@ -48481,11 +48482,6 @@
 ||zononi.com^
 ||zqtk.net^
 ||ztsrv.com^
-||rsra-ph.cdn-fileserver.com^
-||rsra.cdn-fileserver.com^
-||rsras-ph.cdn-fileserver.com^
-||rsras.cdn-fileserver.com^
-||sra-px.cdn-fileserver.com^
 ||youseasky.com^
 ||tracker-shr.ortb.net^
 ||adless.io^
@@ -48636,7 +48632,6 @@
 ||awzbijw.com^
 ||axiomaticanger.com^
 ||azuremystique.com^
-||azurestealth.com^
 ||backtension.com^
 ||backupcat.com^
 ||baconbags.com^
@@ -50997,7 +50992,6 @@
 ||c.bazo.io^
 ||c.imedia.cz^
 ||c.live.com^
-||c.mgid.com^
 ||c.wen.ru^
 ||c3metrics.medifast1.com^
 ||cache2.delvenetworks.com^
@@ -51019,7 +51013,6 @@
 ||cdn.9gtb.com^
 ||cdn.polarbyte.com^
 ||cdn.prod.euid.eu^
-||cdn.ravm.tv^
 ||cdn.usefathom.com^
 ||cdns.brsrvr.com^
 ||cf-pixelfront-analytics.widencdn.net^
@@ -51337,7 +51330,6 @@
 ||i.compendium.com^
 ||i.viafoura.co^
 ||iabusprivacy.pmc.com^
-||id.a-mx.com^
 ||id.nbcuni.com^
 ||iddu1vvb7sk8-a.akamaihd.net^
 ||identification.hotmart.com^
@@ -51807,7 +51799,6 @@
 ||t.360playvid.info^
 ||t.91syun.com^
 ||t.a3cloud.net^
-||t.adx.opera.com^
 ||t.arcade.show^
 ||t.auditedmedia.org.au^
 ||t.beop.io^
@@ -51932,7 +51923,6 @@
 ||track.hubspot.com^
 ||track.hydro.online^
 ||track.juno.com^
-||track.kinetiksoft.com^
 ||track.mailerlite.com^
 ||track.mituo.cn^
 ||track.mp4.center^
@@ -53525,7 +53515,6 @@
 ||rps-p2.rockpapershotgun.com^
 ||rps-uk.rockpapershotgun.com^
 ||rs.mail.ru^
-||rstat.rockmostbet.com^
 ||rt.newswire.ca^
 ||rt.prnewswire.com^
 ||rt.whitebridge.ai^
@@ -53806,7 +53795,6 @@
 ||gj.mmstat.com^
 ||oneid.mmstat.com^
 ||cfa.fidelity.com^
-||check3.tiaa.org^
 ||clear.wallapop.com^
 ||content.canadiantire.ca^
 ||content.discover.com^
@@ -80320,7 +80308,6 @@
 ||info.thermo.com^
 ||info.thermofisher.com^
 ||info.thermoscientific.com^
-||info.thunderhead.com^
 ||info.transcontinental-printing.com^
 ||info.treetopproducts.com^
 ||info.ubmamevents.com^
@@ -82387,7 +82374,6 @@
 ||tracking.theemeraldconference.com^
 ||tracking.thermoinfo.com^
 ||tracking.thiomucase.es^
-||tracking.thunderhead.com^
 ||tracking.ti.com.cn^
 ||tracking.ti.com^
 ||tracking.tibnor.fi^
@@ -82481,7 +82467,6 @@
 ||trail.thomsonreuters.com^
 ||trail.thomsonreuters.in^
 ||training.hager.co.uk^
-||training.thunderhead.com^
 ||transact.blackboard.com^
 ||transplant.care.uhssa.com^
 ||transplant.universityhealth.com^
@@ -83979,7 +83964,6 @@
 ||secure.blue2fund.com^
 ||secure.boat3deer.com^
 ||secure.bolt8snap.com^
-||secure.bred4tula.com^
 ||secure.brie5jiff.com^
 ||secure.burn5tilt.com^
 ||secure.businessintuition247.com^
@@ -84326,7 +84310,6 @@
 ||www.boat3deer.com^
 ||www.bolt8snap.com^
 ||www.bosctrl32.com^
-||www.bred4tula.com^
 ||www.brie5jiff.com^
 ||www.burn5tilt.com^
 ||www.business-path-55.com^
