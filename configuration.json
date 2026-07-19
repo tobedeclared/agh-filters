@@ -28,8 +28,7 @@
       "name": "AdGuard – Mobile Ads",
       "source": "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/adservers.txt",
       "type": "adblock"
-    }
-	,  
+    },  
     {
       "name": "uBlock filters – Badware risks",
       "source": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt",
@@ -58,6 +57,11 @@
     {
       "name": "EasyList RU AdList",
       "source": "https://raw.githubusercontent.com/easylist/ruadlist/master/advblock.txt",
+      "type": "adblock"
+    },  
+    {
+      "name": "Yandex Ads & Trackers Block List",
+      "source": "https://gist.githubusercontent.com/MaksimLysakou/fe0c3a284c2bb8a9285d7c8c2ed5d6c9/raw/5638382c1da75ebb90aa1ea36cc073af370eb689/yandex-block.txt",
       "type": "adblock"
     }
   ],
