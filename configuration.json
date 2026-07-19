@@ -5,15 +5,30 @@
   "license": "GPLv3",
   "sources": [
     {
-      "name": "EasyList",
-      "source": "https://easylist.to/easylist/easylist.txt",
+      "name": "EasyList: RU AdList",
+      "source": "https://easylist-downloads.adblockplus.org/ruadlist.txt",
       "type": "adblock"
     },  
     {
-      "name": "EasyPrivacy",
-      "source": "https://easylist.to/easylist/easyprivacy.txt",
+      "name": "EasyList: BitBlock",
+      "source": "https://easylist-downloads.adblockplus.org/bitblock.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "EasyList",
+      "source": "https://easylist-downloads.adblockplus.org/easylist.txt",
       "type": "adblock"
     }
+    //{
+    //  "name": "EasyList",
+    //  "source": "https://easylist.to/easylist/easylist.txt",
+    //  "type": "adblock"
+    //},  
+    //{
+    //  "name": "EasyPrivacy",
+    //  "source": "https://easylist.to/easylist/easyprivacy.txt",
+    //  "type": "adblock"
+    //}
   ],
   "transformations": [
     "RemoveComments",
