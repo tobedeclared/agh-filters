@@ -7,7 +7,7 @@ on:
     branches:
       - config
     paths:
-      - "configure-list.json"
+      - "configuration.json"
       - "sources/**"
 
   schedule:
@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hostlistcompiler-build
+  group: build-filters
   cancel-in-progress: true
 
 jobs:
@@ -32,28 +32,24 @@ jobs:
           ref: config
           fetch-depth: 0
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          go-version: stable
-          cache: true
+          node-version: 22
+          cache: npm
 
-      - name: Clone HostlistCompiler
+      - name: Install HostlistCompiler
         run: |
-          git clone --depth=1 https://github.com/AdguardTeam/HostlistCompiler.git
+          npm install -g @adguard/hostlist-compiler
 
-      - name: Build HostlistCompiler
+      - name: Create output directory
+        run: mkdir -p output
+
+      - name: Compile filter
         run: |
-          cd HostlistCompiler
-          go build -o ../hostlist-compiler
-
-      - name: Compile filters
-        run: |
-          mkdir -p output
-
-          ./hostlist-compiler \
-            -c configure-list.json \
-            -o output/filter.txt
+          hostlist-compiler \
+            --config configuration.json \
+            --output output/filter.txt
 
       - name: Generate checksum
         run: |
@@ -61,36 +57,38 @@ jobs:
 
       - name: Generate build info
         run: |
-          {
-            echo "Build time: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
-            echo "Repository: $GITHUB_REPOSITORY"
-            echo "Commit: $GITHUB_SHA"
-          } > output/build.txt
+          cat > output/build.txt <<EOF
+          Build time: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          Repository: $GITHUB_REPOSITORY
+          Source branch: config
+          Commit: $GITHUB_SHA
+          EOF
 
-      - name: Prepare filters worktree
+      - name: Fetch filters branch
         run: |
           git fetch origin filters || true
 
+      - name: Create worktree
+        run: |
           if git ls-remote --exit-code --heads origin filters; then
             git worktree add publish origin/filters
           else
-            git worktree add --orphan publish
+            git worktree add --detach publish
             cd publish
             git checkout --orphan filters
             git rm -rf . >/dev/null 2>&1 || true
           fi
 
-      - name: Publish files
+      - name: Copy files
         run: |
           find publish -mindepth 1 -maxdepth 1 \
             ! -name ".git" \
             -exec rm -rf {} +
 
           cp output/* publish/
-
           touch publish/.nojekyll
 
-      - name: Commit changes
+      - name: Commit and push
         run: |
           cd publish
 
@@ -100,12 +98,11 @@ jobs:
           git add .
 
           if git diff --cached --quiet; then
-            echo "No changes."
+            echo "Nothing changed."
             exit 0
           fi
 
-          git commit -m "Update filters ($(date -u +'%Y-%m-%d'))"
-
+          git commit -m "Update filters ($(date -u +'%Y-%m-%d %H:%M UTC'))"
           git push origin HEAD:filters
 
       - name: Cleanup
