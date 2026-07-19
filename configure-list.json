@@ -1,0 +1,28 @@
+{
+  "name": "TBD List",
+  "description": "DNS block list that can be used for AdGuardHome. (Does not work with Pi-hole)",
+  "homepage": "https://github.com/tobedeclared/agh-filters",
+  "license": "GPLv3",
+  "sources": [
+    {
+      "name": "EasyList",
+      "source": "https://easylist.to/easylist/easylist.txt",
+      "type": "adblock",
+      "transformations": [ "RemoveComments", "Compress", "Validate" ]
+    },  
+    {
+      "name": "EasyPrivacy",
+      "source": "https://easylist.to/easylist/easyprivacy.txt",
+      "type": "adblock",
+      "transformations": [ "RemoveComments", "Compress", "Validate" ]
+    }
+  ],
+  "transformations": [
+    "RemoveComments",
+    "Validate",
+    "Deduplicate",
+    "TrimLines",
+    "InsertFinalNewLine",
+    "RemoveEmptyLines"
+  ]
+}

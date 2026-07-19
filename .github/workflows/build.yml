@@ -1,0 +1,114 @@
+name: Build AdGuard Filters
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - config
+    paths:
+      - "configure-list.json"
+      - "sources/**"
+
+  schedule:
+    # Каждые 3 дня в 03:00 UTC
+    - cron: "0 3 */3 * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hostlistcompiler-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout config branch
+        uses: actions/checkout@v4
+        with:
+          ref: config
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache: true
+
+      - name: Clone HostlistCompiler
+        run: |
+          git clone --depth=1 https://github.com/AdguardTeam/HostlistCompiler.git
+
+      - name: Build HostlistCompiler
+        run: |
+          cd HostlistCompiler
+          go build -o ../hostlist-compiler
+
+      - name: Compile filters
+        run: |
+          mkdir -p output
+
+          ./hostlist-compiler \
+            -c configure-list.json \
+            -o output/filter.txt
+
+      - name: Generate checksum
+        run: |
+          sha256sum output/filter.txt > output/filter.txt.sha256
+
+      - name: Generate build info
+        run: |
+          {
+            echo "Build time: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            echo "Repository: $GITHUB_REPOSITORY"
+            echo "Commit: $GITHUB_SHA"
+          } > output/build.txt
+
+      - name: Prepare filters worktree
+        run: |
+          git fetch origin filters || true
+
+          if git ls-remote --exit-code --heads origin filters; then
+            git worktree add publish origin/filters
+          else
+            git worktree add --orphan publish
+            cd publish
+            git checkout --orphan filters
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+
+      - name: Publish files
+        run: |
+          find publish -mindepth 1 -maxdepth 1 \
+            ! -name ".git" \
+            -exec rm -rf {} +
+
+          cp output/* publish/
+
+          touch publish/.nojekyll
+
+      - name: Commit changes
+        run: |
+          cd publish
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .
+
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+
+          git commit -m "Update filters ($(date -u +'%Y-%m-%d'))"
+
+          git push origin HEAD:filters
+
+      - name: Cleanup
+        if: always()
+        run: |
+          git worktree remove publish --force
